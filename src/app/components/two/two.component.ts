@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrl: './two.component.scss'
 })
 export class TwoComponent {
+  count = 0;
 
+  // constructor(count: number) {
+  //   this.count = count;
+  // }
+
+  increment() {
+    this.count++;
+  }
+  decrement() {
+    this.count--;
+  }
+  reset() {
+    this.count = 0;
+  }
 }

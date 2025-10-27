@@ -1,1 +1,27 @@
-<p>two works!</p>
+<div>
+    <div>
+        <h2 style="color: blueviolet;">Counter App</h2>
+        <!-- Primeng -->
+        <p-button class="p-button-rounded border ml-4" label="-" (onClick)="decrement()"></p-button>
+        <span style="margin: 0 1rem;color: brown;font-weight: bolder;">{{ count }}</span>
+        <p-button class="p-button-rounded border" label="+" (onClick)="increment()"></p-button>
+        <br />
+        <p-button label="Reset" (onClick)="reset()"></p-button>
+        <p-button label="Submit" class="mx-3" (onClick)="reset()"></p-button>
+        <p-button label="Cancel" (onClick)="reset()"></p-button>
+
+
+        <!-- Bootstrap -->
+        <div class="d-flex align-items-center justify-content-center mt-4 mb-2">
+            <button class="btn btn-danger" (click)="decrement()">-</button>
+            <span style="margin: 0 1rem;color: brown;font-weight: bolder;">{{ count }}</span>
+            <button class="btn btn-primary" (click)="increment()">+</button>
+        </div>
+
+        <button class="btn btn-secondary" (click)="reset()">Reset</button>
+        <button class="btn btn-primary mx-3" (click)="reset()">Submit</button>
+        <button class="btn btn-danger" (click)="reset()">Cancel</button>
+    </div>
+
+    <app-three></app-three>
+</div>
