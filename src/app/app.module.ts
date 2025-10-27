@@ -17,6 +17,7 @@ import { HighlightDirective, ThreeComponent } from './components/three/three.com
 
 //PrimeNG Modules
 import { ButtonModule } from 'primeng/button';
+import { DecoratorsCompComponent } from './components/decorators-comp/decorators-comp.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ButtonModule } from 'primeng/button';
     OneComponent,
     TwoComponent,
     ThreeComponent,
-    HighlightDirective
+    HighlightDirective,
+    DecoratorsCompComponent
   ],//components
   imports: [
     BrowserModule,
