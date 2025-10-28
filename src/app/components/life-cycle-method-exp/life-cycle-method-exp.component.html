@@ -1,0 +1,21 @@
+<div class="card mt-3 border-5">
+  <h2>Angular Lifecycle Demo (Single Component)</h2>
+
+  <p>
+    Input value: <strong>{{ inputValue }}</strong>
+  </p>
+
+  <div>
+    <button (click)="toggleFlag()">Toggle Flag (ngDoCheck demo)</button>
+    <span> isFlagOn: {{ isFlagOn }}</span>
+  </div>
+
+  <!-- ViewChild demo -->
+  <div class="view-section">
+    <input #viewInput placeholder="Type here to focus after view init" />
+  </div>
+
+  <!-- Content projection demo -->
+  <ng-content></ng-content>
+  <div #contentSlot>Content projected slot (queried by ContentChild)</div>
+</div>

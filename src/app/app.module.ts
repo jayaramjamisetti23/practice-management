@@ -7,9 +7,12 @@ import { AppComponent } from './app.component';
 //Components
 import { OneComponent } from './components/one/one.component';
 import { TwoComponent } from './components/two/two.component';
+import { DecoratorsCompComponent, ChildComponent, ParentComponent } from './components/decorators-comp/decorators-comp.component';
 import { HighlightDirective, ThreeComponent } from './components/three/three.component';
+import { LifeCycleMethodExpComponent } from './components/life-cycle-method-exp/life-cycle-method-exp.component';
 
 //services
+import { DataService } from './services/Data/data.service';
 
 
 //models
@@ -17,7 +20,6 @@ import { HighlightDirective, ThreeComponent } from './components/three/three.com
 
 //PrimeNG Modules
 import { ButtonModule } from 'primeng/button';
-import { DecoratorsCompComponent } from './components/decorators-comp/decorators-comp.component';
 
 
 @NgModule({
@@ -27,14 +29,17 @@ import { DecoratorsCompComponent } from './components/decorators-comp/decorators
     TwoComponent,
     ThreeComponent,
     HighlightDirective,
-    DecoratorsCompComponent
+    DecoratorsCompComponent,
+    LifeCycleMethodExpComponent
   ],//components
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ButtonModule
-  ],//modules
-  providers: [],//services
+    ButtonModule,
+    ChildComponent,
+    ParentComponent
+],//modules
+  providers: [DataService],//services
   bootstrap: [AppComponent]
 })
 export class AppModule { }

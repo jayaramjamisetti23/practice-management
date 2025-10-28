@@ -1,1 +1,20 @@
 <p>Decorators Comp Works!</p>
+<h3>Names List</h3>
+<ul>
+    <li *ngFor="let name of names">{{ name }}</li>
+</ul>
+
+<input #nameInput name="name" class="border" />
+<button *ngIf="nameInput.value" class="ms-2 text-danger" (click)="clearName(nameInput)">X</button>
+
+<div class="d-flex justify-content-evenly gap-2">
+    <button (click)="addName('start',nameInput)" class="btn btn-primary">Add item on the Initial</button>
+    <button (click)="addName('end',nameInput)" class="btn btn-warning">Add item on the Last</button>
+    <button (click)="removeName('start')" class="btn btn-secondary">Remove item on the Initial</button>
+    <button (click)="removeName('end')" class="btn btn-danger">Remove item on the Last</button>
+</div>
+<br />
+
+<!-- Input/Output -->
+<h2 class="fw-bolder">Decorators</h2>
+<app-parent></app-parent>
