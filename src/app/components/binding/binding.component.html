@@ -1,0 +1,60 @@
+<div class="border-5 p-4 rounded border border-primary mt-4">
+
+    <h2 class="text-dark fw-bold">Binding Example</h2>
+    <br />
+    <h3>Interpolation</h3>
+    <p>{{ text1 }}</p>
+    <br />
+
+    <h3>Property Binding</h3>
+    <input placeholder="Enter your name" [value]="text1" />
+    <p [class]="classPB">{{ text1 }}</p>
+    <br />
+
+    <h3>Event Binding</h3>
+    <p>{{ text1 }}</p>
+    <button class="btn btn-primary" [disabled]="isDisabled" (click)="onClick()">Click Me</button>
+    <br />
+
+    <h2>Two-way Binding</h2>
+    <input [(ngModel)]="name" placeholder="Enter your name" />
+    <p>You entered: {{ name | titlecase }}</p>
+
+
+</div>
+
+
+<div class="border-5 p-4 rounded border border-danger mt-4">
+
+    <h2 class="text-dark fw-bold">Pipes Example</h2>
+    <p>{{ text | uppercase }}</p>
+    <p>{{ text | lowercase }}</p>
+    <p>{{ text | titlecase }}</p>
+    <p>{{ text | slice:0:5 }}</p>
+    <p>{{ text | slice:6 }}</p>
+    <p>{{ num | number:'1.2-2' }}</p>
+    <p>{{ num | number:'3.4-4' }}</p>
+    <p>{{ num | currency:'USD':'symbol':'1.1-2' }}</p>
+    <p>{{ num | currency:'EUR':'symbol':'1.2-2' }}</p>
+    <p>{{ num | currency:'GBP':'symbol':'1.2-3' }}</p>
+    <p>{{ num | percent:'1.0-2' }}</p>
+    <p>{{ num | percent }}</p>
+    <p>{{ user | json }}</p>
+    <p>{{ date | date:'fullDate' }}</p>
+    <p>{{ date | date:'shortTime' }}</p>
+    <p>{{ date | date:'medium' }}</p>
+    <p>{{ date | date:'longDate' }}</p>
+    <p>{{ date | date:'short' }}</p>
+    <p>{{ date | date:'mediumDate' }}</p>
+    <p>{{ date | date:'longTime' }}</p>
+    <p>{{ date | date:'yyyy-MM-dd HH:mm:ss' }}</p>
+    <p>{{ date | date:'EEEE, MMMM d, y' }}</p>
+</div>
+
+<div class="border-5 p-4 rounded border border-success mt-4">
+
+    <h2 class="text-dark fw-bold">Reference variables</h2>
+    <input #inputRef type="text" placeholder="Enter some text" class="form-control mb-2" />
+    <button class="btn btn-success" (click)="alertName(inputRef.value)">Show Alert</button>
+
+</div>
