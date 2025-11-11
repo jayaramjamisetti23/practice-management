@@ -22,6 +22,7 @@ import { DataService } from './services/Data/data.service';
 
 //PrimeNG Modules
 import { ButtonModule } from 'primeng/button';
+import { RxjspracticeComponent } from './components/rxjspractice/rxjspractice.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ButtonModule } from 'primeng/button';
     HighlightDirective,
     DecoratorsCompComponent,
     LifeCycleMethodExpComponent,
-    BindingComponent
+    BindingComponent,
+    RxjspracticeComponent
   ],//components
   imports: [
     BrowserModule,
