@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'; // 👈 import this
 import { MatMenuModule } from '@angular/material/menu';
@@ -24,6 +24,9 @@ import { BindingComponent } from './components/binding/binding.component';
 import { HighlightDirective, ThreeComponent } from './components/three/three.component';
 import { LifeCycleMethodExpComponent } from './components/life-cycle-method-exp/life-cycle-method-exp.component';
 import { ErrorComponent } from './components/error/error.component';
+import { EmployeesComponent } from './features/employees/employees.component';
+import { RolesComponent } from './features/roles/roles.component';
+import { ActivitiesComponent } from './features/activities/activities.component';
 
 //services
 import { DataService } from './services/Data/data.service';
@@ -50,6 +53,9 @@ export const APP_CONFIG_TOKEN = new InjectionToken('AppConfig');
     LifeCycleMethodExpComponent,
     BindingComponent,
     RxjspracticeComponent,
+    EmployeesComponent,
+    RolesComponent,
+    ActivitiesComponent,
     ErrorComponent
   ],//components
   imports: [
@@ -72,6 +78,7 @@ export const APP_CONFIG_TOKEN = new InjectionToken('AppConfig');
     DataService,
     { provide: APP_CONFIG_TOKEN, useValue: APP_CONFIG }
   ],//services
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

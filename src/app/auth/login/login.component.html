@@ -1,0 +1,37 @@
+<div class="login-page">
+    <div class="background"></div>
+
+    <div class="login-card">
+        <h2>Login</h2>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="input-group">
+                <span class="material-icons">mail</span>
+                <input type="email" formControlName="email" placeholder="Email ID" />
+            </div>
+
+            <div class="input-group">
+                <span class="material-icons">lock</span>
+                <input [type]="hidePassword ? 'password' : 'text'" formControlName="password" placeholder="Password" />
+                <span class="material-icons toggle" (click)="hidePassword = !hidePassword">
+                    {{ hidePassword ? 'visibility_off' : 'visibility' }}
+                </span>
+            </div>
+
+            <div class="options">
+                <label>
+                    <input type="checkbox" formControlName="rememberMe" />
+                    Remember me
+                </label>
+                <a routerLink="/forgot-password">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+
+            <p class="register-text">
+                Don’t have an account?
+                <a routerLink="/register">Register</a>
+            </p>
+        </form>
+    </div>
+</div>

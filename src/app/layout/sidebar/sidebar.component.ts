@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-sidebar',
-    template: `<mat-sidenav-container>
+  selector: 'app-sidebar',
+  template: `<mat-sidenav-container>
     <mat-sidenav mode="side" opened>
       <mat-nav-list>
         <a mat-list-item routerLink="/employees">Employees</a>

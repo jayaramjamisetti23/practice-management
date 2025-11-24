@@ -1,28 +1,30 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  template: `<h2>Login</h2>
-    <form (ngSubmit)="onLogin()">
-      <input type="text" placeholder="Username" [(ngModel)]="username" name="username" required>
-      <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
-      <button mat-raised-button color="primary" type="submit">Login</button>
-    </form>
-    <div *ngIf="error" style="color:red">{{error}}</div>`
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  username = '';
-  password = '';
-  error = '';
+    loginForm: FormGroup;
+    hidePassword = true;
 
-  constructor(private auth: AuthService, private router: Router) {}
+    constructor(private fb: FormBuilder, private router: Router) {
+        this.loginForm = this.fb.group({
+            email: ['', [Validators.required, Validators.email]],
+            password: ['', [Validators.required]],
+            rememberMe: [false]
+        });
+    }
 
-  onLogin() {
-    this.auth.login(this.username, this.password).subscribe({
-      next: () => this.router.navigate(['/employees']),
-      error: err => this.error = 'Login failed!'
-    });
-  }
+    onSubmit(): void {
+        if (this.loginForm.valid) {
+            console.log('Login Successful:', this.loginForm.value);
+            // 👉 Simulate successful login:
+            localStorage.setItem('token', 'mock-token');
+            this.router.navigate(['/employees']); // redirect to main app page
+        }
+    }
 }
