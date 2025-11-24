@@ -1,0 +1,79 @@
+<div class="register-page">
+    <div class="background"></div>
+
+    <div class="register-card">
+        <h2>Create Account</h2>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <p class="info-text">Fill in your details to create an account.</p>
+
+            <div class="form-grid">
+
+                <!-- First Name -->
+                <div class="input-group">
+                    <span class="material-icons">person</span>
+                    <input type="text" formControlName="firstName" placeholder="First Name" />
+                </div>
+
+                <!-- Last Name -->
+                <div class="input-group">
+                    <span class="material-icons">person</span>
+                    <input type="text" formControlName="lastName" placeholder="Last Name" />
+                </div>
+
+                <!-- Email -->
+                <div class="input-group">
+                    <span class="material-icons">email</span>
+                    <input type="email" formControlName="email" placeholder="Email" />
+                </div>
+
+                <!-- Password -->
+                <div class="input-group">
+                    <span class="material-icons">lock</span>
+                    <input [type]="hidePassword ? 'password' : 'text'" formControlName="password"
+                        placeholder="Password" />
+                    <span class="material-icons toggle" (click)="hidePassword = !hidePassword">
+                        {{ hidePassword ? 'visibility_off' : 'visibility' }}
+                    </span>
+                </div>
+
+                <!-- Address -->
+                <div class="input-group full-width">
+                    <span class="material-icons">home</span>
+                    <input type="text" formControlName="address" placeholder="Address" />
+                </div>
+
+                <!-- City -->
+                <div class="input-group">
+                    <span class="material-icons">location_city</span>
+                    <input type="text" formControlName="city" placeholder="City" />
+                </div>
+
+                <!-- State -->
+                <div class="input-group">
+                    <span class="material-icons">map</span>
+                    <input type="text" formControlName="state" placeholder="State" />
+                </div>
+
+                <!-- Zip Code -->
+                <div class="input-group">
+                    <span class="material-icons">pin</span>
+                    <input type="text" formControlName="zipcode" placeholder="Zip Code" />
+                </div>
+
+                <!-- Phone -->
+                <div class="input-group">
+                    <span class="material-icons">phone</span>
+                    <input type="text" formControlName="phone" placeholder="Phone Number" />
+                </div>
+            </div>
+
+            <button type="submit" class="register-btn">Register</button>
+
+            <p class="back-text">
+                Already have an account?
+                <a routerLink="/login">Login</a>
+            </p>
+        </form>
+    </div>
+</div>

@@ -6,7 +6,7 @@ import { APP_CONFIG } from '../config/app.config';
 
 @Injectable({ providedIn: 'root' })
 export class CommentService {
-    private baseUrl = APP_CONFIG.apiBaseUrl + '/comments';
+    private baseUrl = APP_CONFIG.apiUrl + '/comments';
 
     constructor(private http: HttpClient) { }
 

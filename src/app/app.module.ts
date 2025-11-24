@@ -39,8 +39,10 @@ import { RxjspracticeComponent } from './components/rxjspractice/rxjspractice.co
 
 import { InjectionToken } from '@angular/core';
 import { APP_CONFIG } from './config/app.config';
+import { APP_APICALLS } from './apicalls/app.apicalls';
 
 export const APP_CONFIG_TOKEN = new InjectionToken('AppConfig');
+export const APP_APICALLS_TOKEN = new InjectionToken('AppApiCalls');
 
 @NgModule({
   declarations: [
@@ -76,7 +78,8 @@ export const APP_CONFIG_TOKEN = new InjectionToken('AppConfig');
   ],//modules
   providers: [
     DataService,
-    { provide: APP_CONFIG_TOKEN, useValue: APP_CONFIG }
+    { provide: APP_CONFIG_TOKEN, useValue: APP_CONFIG },
+    { provide: APP_APICALLS_TOKEN, useValue: APP_APICALLS }
   ],//services
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

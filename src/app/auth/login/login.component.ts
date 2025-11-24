@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { APP_CONFIG } from '../../config/app.config';
 
 @Component({
     selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent {
         this.loginForm = this.fb.group({
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required]],
-            rememberMe: [false]
+            rememberMe: [false],
+            entityType: APP_CONFIG.entityType,
         });
     }
 

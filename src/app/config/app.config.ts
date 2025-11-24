@@ -1,8 +1,17 @@
 // App-wide config data
+const url = 'https://practicedevapi.dosystemsinc.com/';//dev
+
 export const APP_CONFIG = {
-    apiBaseUrl: 'https://your-api-base-url.com', // <-- Add your actual API base URL here
+    apiUrl: `${url}api`,
+    imgUrl: `${url}images/attachment/`,
+    profileUrl: `${url}images/users/`,
+    patientImageUrl: `${url}images/attachment/`,
+    sampleFileUrl: `${url}images/`,
+    previousImageUrl: `${url}images/`,
+
+    entityType: 'users',
+    defaultScreen: 'employees',
     defaultComment: 'This is a default comment.',
     maxLength: 500,
-    enableEditing: true
-    // Add more config as needed
+    enableEditing: true,
 };

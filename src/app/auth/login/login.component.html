@@ -6,7 +6,7 @@
 
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="input-group">
-                <span class="material-icons">mail</span>
+                <span class="material-icons">Email</span>
                 <input type="email" formControlName="email" placeholder="Email ID" />
             </div>
 
@@ -14,7 +14,7 @@
                 <span class="material-icons">lock</span>
                 <input [type]="hidePassword ? 'password' : 'text'" formControlName="password" placeholder="Password" />
                 <span class="material-icons toggle" (click)="hidePassword = !hidePassword">
-                    {{ hidePassword ? 'visibility_off' : 'visibility' }}
+                    {{ hidePassword ? 'X' : 'V' }}
                 </span>
             </div>
 
