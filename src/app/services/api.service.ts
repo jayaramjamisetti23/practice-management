@@ -38,12 +38,12 @@ export class ApiService {
     if (!body) return body;
 
     if ((method === 'POST' || method === 'PUT') && type !== 'upload') {
-      let hspData: any = localStorage?.HospitalData
-        ? JSON.parse(localStorage.HospitalData)
+      let hspData: any = localStorage?.['HospitalData']
+        ? JSON.parse(localStorage['HospitalData'])
         : {};
 
-      if (localStorage?.ClinicData && method === 'POST' && !body.clinicId) {
-        body.clinicId = JSON.parse(localStorage.ClinicData);
+      if (localStorage?.['ClinicData'] && method === 'POST' && !body.clinicId) {
+        body.clinicId = JSON.parse(localStorage['ClinicData']);
       }
 
       if (body?.patientId?.clinicId?._id) {
@@ -101,7 +101,7 @@ export class ApiService {
     const fullUrl = `${APP_CONFIG.apiUrl}${url}`;
 
     // Special case: login
-    if (url === 'auth/login') {
+    if (url === APP_APICALLS?.loginUser) {
       return this.http.post(fullUrl, body);
     }
 

@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms'; // 👈 import this
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 //PrimeNG Modules
 import { ButtonModule } from 'primeng/button';
@@ -33,6 +35,8 @@ import { DataService } from './services/Data/data.service';
 
 
 //models
+
+import { HttpClientModule } from '@angular/common/http';   // ✅ REQUIRED
 
 
 import { RxjspracticeComponent } from './components/rxjspractice/rxjspractice.component';
@@ -74,10 +78,14 @@ export const APP_APICALLS_TOKEN = new InjectionToken('AppApiCalls');
     FormsModule,
     MatMenuModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+
+    HttpClientModule,
+    ToastModule,
   ],//modules
   providers: [
     DataService,
+    MessageService,
     { provide: APP_CONFIG_TOKEN, useValue: APP_CONFIG },
     { provide: APP_APICALLS_TOKEN, useValue: APP_APICALLS }
   ],//services

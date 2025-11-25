@@ -11,11 +11,17 @@
             </div>
 
             <div class="input-group">
-                <span class="material-icons">lock</span>
+                <span class="material-icons">Password</span>
                 <input [type]="hidePassword ? 'password' : 'text'" formControlName="password" placeholder="Password" />
                 <span class="material-icons toggle" (click)="hidePassword = !hidePassword">
                     {{ hidePassword ? 'X' : 'V' }}
                 </span>
+
+                <div class="error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                    <small *ngIf="loginForm.get('password')?.errors?.['pattern']">
+                        Password must contain 1 uppercase, 1 lowercase, 1 number and be 8–32 characters long.
+                    </small>
+                </div>
             </div>
 
             <div class="options">

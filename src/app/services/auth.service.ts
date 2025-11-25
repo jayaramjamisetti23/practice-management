@@ -4,8 +4,12 @@ import { Observable, of } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+
     private tokenKey = 'auth_token';
+    private loginDataKey = 'loginCredentials';
+    private rolePermissionsKey = "rolePermissions";
     private token: string | null = null;
+
 
     constructor(private router: Router) { }
 
@@ -13,9 +17,31 @@ export class AuthService {
         localStorage.setItem(this.tokenKey, token);
     }
 
+    setRolePermissions(rolePermissions: any) {
+        localStorage.setItem(this.rolePermissionsKey, JSON.stringify(rolePermissions));
+    }
+
+    setLoginCredentials(loginUserData: any) {
+        if (loginUserData?.accessToken) this.setToken(loginUserData.accessToken);
+        if (loginUserData?.rolePermissions) this.setRolePermissions(loginUserData.rolePermissions);
+
+        localStorage.setItem(this.loginDataKey, JSON.stringify(loginUserData));
+    }
+
     getToken(): string | null {
         return localStorage.getItem(this.tokenKey);
     }
+
+    getRolePermissions(): any {
+        const data = localStorage.getItem(this.rolePermissionsKey);
+        return data ? JSON.parse(data) : {};
+    }
+
+    getLoginCredentials(): any {
+        const data = localStorage.getItem(this.loginDataKey);
+        return data ? JSON.parse(data) : {};
+    }
+
 
     login(username: string, password: string): Observable<boolean> {
         // Replace with real API call
