@@ -8,16 +8,21 @@ export class AuthService {
     private tokenKey = 'auth_token';
     private loginDataKey = 'loginCredentials';
     private rolePermissionsKey = "rolePermissions";
+
     private token: string | null = null;
+    private rolePermissions: any | {};
+    private loginUserData: any | {};
 
 
     constructor(private router: Router) { }
 
     setToken(token: string) {
+        this.token = token;
         localStorage.setItem(this.tokenKey, token);
     }
 
     setRolePermissions(rolePermissions: any) {
+        this.rolePermissions = rolePermissions;
         localStorage.setItem(this.rolePermissionsKey, JSON.stringify(rolePermissions));
     }
 
@@ -25,6 +30,7 @@ export class AuthService {
         if (loginUserData?.accessToken) this.setToken(loginUserData.accessToken);
         if (loginUserData?.rolePermissions) this.setRolePermissions(loginUserData.rolePermissions);
 
+        this.loginUserData = loginUserData;
         localStorage.setItem(this.loginDataKey, JSON.stringify(loginUserData));
     }
 
@@ -59,6 +65,8 @@ export class AuthService {
     logout(): void {
         this.token = null;
         localStorage.removeItem(this.tokenKey);
+        localStorage.removeItem(this.rolePermissionsKey);
+        localStorage.removeItem(this.loginDataKey);
         this.router.navigate(['/login']);
     }
 }

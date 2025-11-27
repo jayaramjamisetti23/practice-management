@@ -44,6 +44,12 @@ import { RxjspracticeComponent } from './components/rxjspractice/rxjspractice.co
 import { InjectionToken } from '@angular/core';
 import { APP_CONFIG } from './config/app.config';
 import { APP_APICALLS } from './apicalls/app.apicalls';
+import { UsersComponent } from './screens/users/users.component';
+import { AppointmentsComponent } from './screens/appointments/appointments.component';
+import { TemplatesComponent } from './screens/templates/templates.component';
+import { FlowboardComponent } from './screens/flowboard/flowboard.component';
+import { SchedulesComponent } from './screens/schedules/schedules.component';
+import { PatientsComponent } from './screens/patients/patients.component';
 
 export const APP_CONFIG_TOKEN = new InjectionToken('AppConfig');
 export const APP_APICALLS_TOKEN = new InjectionToken('AppApiCalls');
@@ -62,7 +68,13 @@ export const APP_APICALLS_TOKEN = new InjectionToken('AppApiCalls');
     EmployeesComponent,
     RolesComponent,
     ActivitiesComponent,
-    ErrorComponent
+    ErrorComponent,
+    UsersComponent,
+    AppointmentsComponent,
+    TemplatesComponent,
+    FlowboardComponent,
+    SchedulesComponent,
+    PatientsComponent
   ],//components
   imports: [
     BrowserModule,
