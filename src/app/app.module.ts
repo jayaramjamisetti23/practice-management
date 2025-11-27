@@ -26,10 +26,17 @@ import { BindingComponent } from './components/binding/binding.component';
 import { HighlightDirective, ThreeComponent } from './components/three/three.component';
 import { LifeCycleMethodExpComponent } from './components/life-cycle-method-exp/life-cycle-method-exp.component';
 import { ErrorComponent } from './components/error/error.component';
-import { EmployeesComponent } from './features/employees/employees.component';
-import { RolesComponent } from './features/roles/roles.component';
-import { ActivitiesComponent } from './features/activities/activities.component';
 
+
+import { EmployeesComponent } from './layout/employees/employees.component';
+// import { RolesComponent } from './layout/roles/roles.component';
+import { ActivitiesComponent } from './layout/activities/activities.component';
+import { UsersComponent } from './layout/users/users.component';
+import { AppointmentsComponent } from './layout/appointments/appointments.component';
+import { TemplatesComponent } from './layout/templates/templates.component';
+import { FlowboardComponent } from './layout/flowboard/flowboard.component';
+import { SchedulesComponent } from './layout/schedules/schedules.component';
+import { PatientsComponent } from './layout/patients/patients.component';
 //services
 import { DataService } from './services/Data/data.service';
 
@@ -44,12 +51,7 @@ import { RxjspracticeComponent } from './components/rxjspractice/rxjspractice.co
 import { InjectionToken } from '@angular/core';
 import { APP_CONFIG } from './config/app.config';
 import { APP_APICALLS } from './apicalls/app.apicalls';
-import { UsersComponent } from './screens/users/users.component';
-import { AppointmentsComponent } from './screens/appointments/appointments.component';
-import { TemplatesComponent } from './screens/templates/templates.component';
-import { FlowboardComponent } from './screens/flowboard/flowboard.component';
-import { SchedulesComponent } from './screens/schedules/schedules.component';
-import { PatientsComponent } from './screens/patients/patients.component';
+
 
 export const APP_CONFIG_TOKEN = new InjectionToken('AppConfig');
 export const APP_APICALLS_TOKEN = new InjectionToken('AppApiCalls');
@@ -66,7 +68,7 @@ export const APP_APICALLS_TOKEN = new InjectionToken('AppApiCalls');
     BindingComponent,
     RxjspracticeComponent,
     EmployeesComponent,
-    RolesComponent,
+    // RolesComponent,
     ActivitiesComponent,
     ErrorComponent,
     UsersComponent,
@@ -104,4 +106,5 @@ export const APP_APICALLS_TOKEN = new InjectionToken('AppApiCalls');
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
