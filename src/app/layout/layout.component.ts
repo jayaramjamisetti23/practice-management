@@ -7,4 +7,4 @@ import { Component } from '@angular/core';
       <router-outlet></router-outlet>
     </app-sidebar>`
 })
-export class LayoutComponent {}
+export class LayoutComponent { }
