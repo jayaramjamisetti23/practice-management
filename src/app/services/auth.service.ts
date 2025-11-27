@@ -59,8 +59,7 @@ export class AuthService {
     }
 
     isLoggedIn(): boolean {
-        return true;
-        // return !!this.token;
+        return !!this.token;
     }
 
     logout(): void {

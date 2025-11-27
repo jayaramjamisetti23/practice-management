@@ -7,12 +7,20 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule) },
   { path: 'register', loadChildren: () => import('./auth/register/register.module').then(m => m.RegisterModule) },
   { path: 'forgot-password', loadChildren: () => import('./auth/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule) },
+
   {
-    path: '',
+    path: 'layout',
     canActivate: [AuthGuard],
     loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule)
   },
 
+  {
+    path: 'employees',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./layout/employees/employees.module').then(m => m.EmployeesModule)
+  },
+
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', component: ErrorComponent }
 ];
 

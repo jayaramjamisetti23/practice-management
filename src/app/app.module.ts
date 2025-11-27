@@ -51,6 +51,9 @@ import { RxjspracticeComponent } from './components/rxjspractice/rxjspractice.co
 import { InjectionToken } from '@angular/core';
 import { APP_CONFIG } from './config/app.config';
 import { APP_APICALLS } from './apicalls/app.apicalls';
+import { CommonTableComponent } from './components/common-table/common-table.component';
+import { FormModalComponent } from './components/form-modal/form-modal.component';
+import { BadgeComponent } from './components/badge/badge.component';
 
 
 export const APP_CONFIG_TOKEN = new InjectionToken('AppConfig');
@@ -67,7 +70,7 @@ export const APP_APICALLS_TOKEN = new InjectionToken('AppApiCalls');
     LifeCycleMethodExpComponent,
     BindingComponent,
     RxjspracticeComponent,
-    EmployeesComponent,
+    // EmployeesComponent,
     // RolesComponent,
     ActivitiesComponent,
     ErrorComponent,
@@ -76,7 +79,10 @@ export const APP_APICALLS_TOKEN = new InjectionToken('AppApiCalls');
     TemplatesComponent,
     FlowboardComponent,
     SchedulesComponent,
-    PatientsComponent
+    PatientsComponent,
+    CommonTableComponent,
+    FormModalComponent,
+    BadgeComponent
   ],//components
   imports: [
     BrowserModule,

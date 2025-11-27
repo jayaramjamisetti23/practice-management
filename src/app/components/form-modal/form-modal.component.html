@@ -1,0 +1,9 @@
+<p-dialog [header]="title" [(visible)]="visible" [modal]="true" [closable]="true" (onHide)="onClose.emit()">
+
+    <ng-content></ng-content>
+
+    <div class="mt-3 text-end">
+        <button pButton label="Save" class="p-button-primary" (click)="onSubmit.emit()"></button>
+    </div>
+
+</p-dialog>
