@@ -1,14 +1,15 @@
-<p-table [value]="data" [paginator]="true" [rows]="10" [resizableColumns]="true">
-    <ng-container *ngFor="let col of columns">
-
-        <!-- Column Header -->
-        <ng-template pTemplate="header" let-columns>
+<div class="table-wrapper">
+    <p-table [value]="data" [paginator]="true" [rows]="10" [resizableColumns]="true" styleClass="w-full h-full" stripedRows>
+        <!-- HEADER -->
+        <ng-template pTemplate="header">
             <tr>
-                <th *ngFor="let col of columns">{{ col.header }}</th>
+                <th *ngFor="let col of columns">
+                    {{ col.header }}
+                </th>
             </tr>
         </ng-template>
 
-        <!-- Column Body -->
+        <!-- BODY -->
         <ng-template pTemplate="body" let-row>
             <tr>
                 <td *ngFor="let col of columns">
@@ -20,7 +21,7 @@
 
                     <!-- DATE -->
                     <span *ngIf="col.type === 'date'">
-                        {{ row[col.field] | date:'MMM d, y' }}
+                        {{ row[col.field] | date: 'MMM d, y' }}
                     </span>
 
                     <!-- BADGE -->
@@ -32,5 +33,5 @@
             </tr>
         </ng-template>
 
-    </ng-container>
-</p-table>
+    </p-table>
+</div>

@@ -59,7 +59,8 @@ export class AuthService {
     }
 
     isLoggedIn(): boolean {
-        return !!this.token;
+        // Check in-memory token or persisted token in localStorage
+        return !!(this.token || localStorage.getItem(this.tokenKey));
     }
 
     logout(): void {

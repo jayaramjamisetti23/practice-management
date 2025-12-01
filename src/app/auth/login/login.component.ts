@@ -43,7 +43,9 @@ export class LoginComponent {
                 if (res?.accessToken) {
                     this.auth.setLoginCredentials({ accessToken: res.accessToken, ...res.details });
                     this.toast.success('Form submitted successfully!');
-                    this.router.navigate([APP_CONFIG.defaultScreen]);
+                    // navigateByUrl with configured default path (works with leading slash)
+                    // this.router.navigate([APP_CONFIG.defaultScreen]);
+                    this.router.navigateByUrl(APP_CONFIG.defaultScreen);
                 } else if (res?.errorMessage) {
                     this.toast.error(res?.errorMessage);
                 }

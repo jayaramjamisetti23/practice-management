@@ -70,16 +70,9 @@ export const APP_APICALLS_TOKEN = new InjectionToken('AppApiCalls');
     LifeCycleMethodExpComponent,
     BindingComponent,
     RxjspracticeComponent,
-    // EmployeesComponent,
-    // RolesComponent,
-    ActivitiesComponent,
+
     ErrorComponent,
-    UsersComponent,
-    AppointmentsComponent,
-    TemplatesComponent,
-    FlowboardComponent,
-    SchedulesComponent,
-    PatientsComponent,
+
     CommonTableComponent,
     FormModalComponent,
     BadgeComponent

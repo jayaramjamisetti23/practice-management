@@ -15,4 +15,4 @@ import { LayoutComponent } from './layout.component';
   imports: [CommonModule, RouterModule, MatSidenavModule, MatListModule, MatToolbarModule, MatMenuModule, MatIconModule],
   exports: [LayoutComponent]
 })
-export class LayoutModule {}
+export class LayoutModule { }

@@ -8,18 +8,14 @@ const routes: Routes = [
   { path: 'register', loadChildren: () => import('./auth/register/register.module').then(m => m.RegisterModule) },
   { path: 'forgot-password', loadChildren: () => import('./auth/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule) },
 
+  // Guarded root: LayoutModule handles child routes like /employees, /roles, /activities
   {
-    path: 'layout',
+    path: '',
     canActivate: [AuthGuard],
     loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule)
   },
 
-  {
-    path: 'employees',
-    canActivate: [AuthGuard],
-    loadChildren: () => import('./layout/employees/employees.module').then(m => m.EmployeesModule)
-  },
-
+  // default -> login
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', component: ErrorComponent }
 ];
