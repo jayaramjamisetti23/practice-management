@@ -2,3 +2,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root {
+    --default-color: ##3b5968;
+    --sidebar-bg: #3b5968;
+    --sidebar-text: #ffffff;
+    --sidebar-hover: #486a7a;
+    --topbar-height: 50px;
+}

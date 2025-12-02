@@ -1,22 +1,19 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-topbar',
-  template: `<mat-toolbar color="primary">
-    <span>Practice Management</span>
-    <span class="spacer"></span>
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon>account_circle</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>Profile</button>
-      <button mat-menu-item (click)="logout()">Logout</button>
-    </mat-menu>
-  </mat-toolbar>`,
-  styles: [`.spacer { flex: 1 1 auto; }`]
+  templateUrl: './topbar.component.html',
+  styleUrls: ['./topbar.component.css']
 })
 export class TopbarComponent {
+  username = 'John Doe';
+
+  constructor(private auth: AuthService, private router: Router) { }
+
   logout() {
-    // Implement logout logic
+    this.auth.logout();        // Clear localStorage or session
+    this.router.navigate(['/login']);  // Redirect to login
   }
 }

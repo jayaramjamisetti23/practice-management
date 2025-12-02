@@ -1,9 +1,12 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms'; // 👈 import this
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 
@@ -54,6 +57,7 @@ import { APP_APICALLS } from './apicalls/app.apicalls';
 import { CommonTableComponent } from './components/common-table/common-table.component';
 import { FormModalComponent } from './components/form-modal/form-modal.component';
 import { BadgeComponent } from './components/badge/badge.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 export const APP_CONFIG_TOKEN = new InjectionToken('AppConfig');
@@ -79,6 +83,7 @@ export const APP_APICALLS_TOKEN = new InjectionToken('AppApiCalls');
   ],//components
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ButtonModule,
     InputTextModule,
@@ -89,9 +94,11 @@ export const APP_APICALLS_TOKEN = new InjectionToken('AppApiCalls');
     ChildComponent,
     ParentComponent,
     FormsModule,
+
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
+    MatButtonModule,
 
     HttpClientModule,
     ToastModule,
@@ -100,7 +107,8 @@ export const APP_APICALLS_TOKEN = new InjectionToken('AppApiCalls');
     DataService,
     MessageService,
     { provide: APP_CONFIG_TOKEN, useValue: APP_CONFIG },
-    { provide: APP_APICALLS_TOKEN, useValue: APP_APICALLS }
+    { provide: APP_APICALLS_TOKEN, useValue: APP_APICALLS },
+    provideAnimationsAsync()
   ],//services
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

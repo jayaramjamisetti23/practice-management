@@ -1,0 +1,34 @@
+<div class="sidebar">
+
+    <ng-container *ngFor="let item of menuList">
+
+        <!-- MAIN MENU ITEM -->
+        <div class="menu-item" [class.expandable]="item.submenus" (click)="toggle(item)"
+            [routerLink]="!item.submenus ? item.route : null">
+
+            <div class="left">
+                <mat-icon>{{ item.icon }}</mat-icon>
+                <span>{{ item.displayTitle }}</span>
+            </div>
+
+            <!-- Arrow Only If Submenu Exists -->
+            <mat-icon class="arrow" *ngIf="item.submenus" [class.rotate]="item.open">
+                expand_more
+            </mat-icon>
+        </div>
+
+        <!-- SUBMENU -->
+        <div class="submenu" *ngIf="item.submenus && item.open">
+
+            <div class="submenu-item" *ngFor="let sub of item.submenus" [routerLink]="sub.route">
+
+                <mat-icon>{{ sub.icon }}</mat-icon>
+                <span>{{ sub.displayTitle }}</span>
+
+            </div>
+
+        </div>
+
+    </ng-container>
+
+</div>

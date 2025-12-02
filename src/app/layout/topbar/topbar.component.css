@@ -1,0 +1,31 @@
+.topbar {
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    height: var(--topbar-height);
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+button[mat-button] {
+    color: white;
+    text-transform: none;
+    font-size: 14px;
+}
+
+mat-menu button mat-icon {
+    margin-right: 10px;
+}
