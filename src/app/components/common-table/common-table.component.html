@@ -1,35 +1,106 @@
 <div class="table-wrapper">
-    <p-table [value]="data" [paginator]="true" [rows]="10" [resizableColumns]="true" styleClass="w-full h-full" stripedRows>
-        <!-- HEADER -->
+
+    <!-- OPTIONAL HEADER TITLE -->
+    <h2 *ngIf="header" class="mb-3">{{ header }}</h2>
+
+    <!-- ADVANCED FILTER TABLE -->
+    <p-table #dt1 [value]="data" dataKey="id" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]" [loading]="loading"
+        [paginator]="true" [resizableColumns]="true" showGridlines stripedRows>
+
+        <!-- CAPTION -->
+        <ng-template pTemplate="caption">
+            <div class="flex" style="align-items:center; gap:8px;">
+                <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (click)="clear(dt1)" />
+                <div class="ml-auto" style="display:flex; align-items:center; gap:8px;">
+                    <i class="pi pi-search" aria-hidden="true"></i>
+                    <input pInputText type="text" (input)="onGlobalFilter($event)" placeholder="Search keyword" />
+                </div>
+            </div>
+        </ng-template>
+
+        <!-- DYNAMIC HEADER FROM PARENT COLUMNS -->
         <ng-template pTemplate="header">
             <tr>
-                <th *ngFor="let col of columns">
-                    {{ col.header }}
+                <th *ngFor="let col of columns" [style.minWidth]="col.width || '12rem'">
+                    <div class="flex items-center justify-between">
+                        {{ col.header }}
+
+                        <p-columnFilter *ngIf="col.filter" [type]="col.filterType || 'text'" [field]="col.field"
+                            display="menu">
+                        </p-columnFilter>
+                    </div>
                 </th>
             </tr>
         </ng-template>
 
         <!-- BODY -->
-        <ng-template pTemplate="body" let-row>
+        <ng-template pTemplate="body" let-row let-rowIndex="rowIndex">
             <tr>
                 <td *ngFor="let col of columns">
 
-                    <!-- TEXT -->
-                    <span *ngIf="col.type === 'text' || !col.type">
+                    <!-- normal text -->
+                    <span *ngIf="!col.type || col.type === 'text'">
                         {{ row[col.field] }}
                     </span>
 
-                    <!-- DATE -->
-                    <span *ngIf="col.type === 'date'">
-                        {{ row[col.field] | date: 'MMM d, y' }}
+                    <!-- sno -->
+                    <span *ngIf="col.type === 'sno'">
+                        {{ rowIndex + 1 }}
                     </span>
 
-                    <!-- BADGE -->
+                    <!-- relateAutoComplete -->
+                    <span *ngIf="col.type === 'relateAutoComplete' && col.searchField">
+                        {{ row?.[col.field]?.[col.searchField] }}
+                    </span>
+
+                    <!-- date -->
+                    <span *ngIf="col.type === 'date'">
+                        {{ row[col.field] | date:'MM/dd/yyyy' }}
+                    </span>
+
+                    <!-- number / currency -->
+                    <span *ngIf="col.type === 'currency'">
+                        {{ row[col.field] | currency:col.currency:'symbol' }}
+                    </span>
+
+                    <!-- tag -->
                     <span *ngIf="col.type === 'badge'">
-                        <p-tag severity="info" [value]="row[col.field]"></p-tag>
+                        <p-tag [value]="row[col.field]" [severity]="getSeverity(row[col.field])"></p-tag>
+                    </span>
+
+                    <!-- boolean -->
+                    <span *ngIf="col.type === 'boolean'" class="text-center">
+                        <i class="pi" [ngClass]="{
+                             'text-green-500 pi-check-circle': row[col.field],
+                             'text-red-500 pi-times-circle': !row[col.field]
+                           }"></i>
                     </span>
 
                 </td>
+            </tr>
+        </ng-template>
+
+        <!-- EMPTY -->
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td [attr.colspan]="columns.length">No records found.</td>
+            </tr>
+        </ng-template>
+
+    </p-table>
+
+    <!-- SIMPLE TABLE MODE -->
+    <p-table *ngIf="type === 'simple'" [value]="data" [paginator]="true" [rows]="10" stripedRows>
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th *ngFor="let col of columns">{{ col.header }}</th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-row>
+            <tr>
+                <td *ngFor="let col of columns">{{ row[col.field] }}</td>
             </tr>
         </ng-template>
 

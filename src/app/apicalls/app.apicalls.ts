@@ -92,5 +92,8 @@ export const APP_APICALLS = {
     emiPlanPaymentMail: "emiPlans/emiPlanPaymentMail",
     emiPlanPrint: "emiPlans/pdf/generatePdf",
     availableEarly: "appointments/availableEarly",
-    patientsDetails: 'patientsDetails'
+    patientsDetails: 'patientsDetails',
+    flowboard: "flowboard",
+    roles: "roles",
+    orthoForm: "orthoForm"
 };

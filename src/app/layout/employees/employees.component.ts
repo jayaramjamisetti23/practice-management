@@ -7,12 +7,12 @@ import { Component } from '@angular/core';
 })
 export class EmployeesComponent {
 
-  employees = [
-    { name: 'John', joining: '2024-05-01', status: 'Active' },
-    { name: 'Michael', joining: '2023-11-10', status: 'Inactive' }
-  ];
+  type: string = 'filter';
+  header: string = 'Employees';
+  apiCall: string = '/employees';
+  apiResponseKey: string = 'employees';
 
-  columns = [
+  tableFields = [
     { field: 'name', header: 'Employee Name', type: 'text' },
     { field: 'joining', header: 'Joining Date', type: 'date' },
     { field: 'status', header: 'Status', type: 'badge' }

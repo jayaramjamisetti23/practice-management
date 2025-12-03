@@ -4,7 +4,7 @@ import { DataService } from '../../services/Data/data.service';
 @Component({
   selector: 'app-decorators-comp',
   templateUrl: './decorators-comp.component.html',
-  styleUrl: './decorators-comp.component.scss'
+  styleUrls: ['./decorators-comp.component.scss']
 })
 export class DecoratorsCompComponent {
   names: string[] = [];
